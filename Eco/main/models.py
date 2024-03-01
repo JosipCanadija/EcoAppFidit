@@ -22,18 +22,18 @@ class EcoActivity(models.Model):
 
 class User(models.Model):
     user_name = models.CharField(max_length=20)
-    user_lastname = models.Charfield(max_length=20)
+    user_lastname = models.CharField(max_length=20)
     user_id = models.CharField(max_length=8)
     user_acitiv = models.ManyToManyField(EcoActivity)
 
     def __str__(self):
         return self.user_id
 
-class GroupAssistant(models.model):
+class GroupAssistant(models.Model):
     mentor = models.OneToOneField(Organizer, on_delete=models.CASCADE)
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     ass_task = models.CharField(max_length=30)
-    ass_done = models.BooleanField(Default=False)
+    ass_done = models.BooleanField(default=False)
 
     def __str__(self):
         return 'Asistentski podaci usera sa ID-em {}'.format(self.user.user_id)
