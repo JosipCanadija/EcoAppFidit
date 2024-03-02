@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eko Aplikacija</title>
+</head>
+<body>
+    <h1>Homepage</h1>
+    <ul>
+        <li><a href="{% url 'Eco:listOrg' %}">List Organizers</a></li>
+        <li><a href="{% url 'Eco:listEco' %}">List Ecological Activities</a></li>
+        <li><a href="{% url 'Eco:listUsers' %}">List Users</a></li>
+        <li><a href="{% url 'Eco:listAssistants' %}">List Assistants</a></li>
+    </ul>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

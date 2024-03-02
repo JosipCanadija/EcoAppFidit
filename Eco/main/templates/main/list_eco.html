@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Eco Activities</title>
+</head>
+<body>
+    <h1>List of Eco Activities</h1>
+    <ul>
+        {% for eco_activity in eco %}
+            <li>Name: {{ eco_activity.eco_name }}</li>
+            <p>Summary: {{ eco_activity.eco_summary }}</p>
+            <p>Date: {{ eco_activity.eco_date }}</p>
+            <p>Author ID: {{ eco_activity.eco_author }}</p>
+        {% empty %}
+            <li>No eco activities available</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}

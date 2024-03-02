@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Organizers</title>
+</head>
+<body>
+    <h1>List of Organizers</h1>
+    <ul>
+        {% for organizer in organizers %}
+            <li>Name: {{ organizer.org_name }} {{ organizer.org_lastname }}</li>
+            <p>Contact: {{ organizer.org_contact }}</p>
+            <p>Company ID: {{ organizer.org_companyID }}</p>
+        {% empty %}
+            <li>No organizers available</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}

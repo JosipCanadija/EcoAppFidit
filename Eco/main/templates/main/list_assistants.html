@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Group Assistants</title>
+</head>
+<body>
+    <h1>List of Group Assistants</h1>
+    <ul>
+        {% for assistant in groups %}
+            <li>Mentor: {{ assistant.mentor.org_name }} {{ assistant.mentor.org_lastname }}</li>
+            <p>User: {{ assistant.user.user_name }} {{ assistant.user.user_lastname }}</p>
+            <p>Task: {{ assistant.ass_task }}</p>
+            <p>Done: {% if assistant.ass_done %}Yes{% else %}No{% endif %}</p>
+        {% empty %}
+            <li>No group assistants available</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}
