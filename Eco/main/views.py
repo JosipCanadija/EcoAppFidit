@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic import ListView
 from .models import *
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+from .forms import *
 
 # Create your views here.
 
@@ -31,3 +34,9 @@ class GroupAssistantListView(ListView):
     model = GroupAssistant
     template_name = 'list_assistants.html'
     context_object_name = 'groups'
+
+class OrganizerCreateView(CreateView):
+    model = Organizer
+    form_class = OrganizerForm
+    template_name = 'add_organizers.html'
+    success_url = reverse_lazy('Eco:listOrg')

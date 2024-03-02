@@ -9,5 +9,6 @@ urlpatterns = [
     path('listEco/', views.EcoActivityListView.as_view(), name='listEco'),
     path('listUsers/', views.UserListView.as_view(), name='listUsers'),
     path('listAssistants/', views.GroupAssistantListView.as_view(), name='listAssistants'),
+    path('addOrganizers/', views.OrganizerCreateView.as_view(), name='addOrganizers'),
 
 ]
