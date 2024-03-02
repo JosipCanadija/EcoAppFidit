@@ -6,7 +6,7 @@ class Organizer(models.Model):
     org_name = models.CharField(max_length=20)
     org_lastname = models.CharField(max_length=20)
     org_contact = models.EmailField()
-    org_companyID = models.CharField(max_length=10)
+    org_companyID = models.CharField(max_length=15)
 
     def __str__(self):
         return self.org_companyID
@@ -23,8 +23,8 @@ class EcoActivity(models.Model):
 class User(models.Model):
     user_name = models.CharField(max_length=20)
     user_lastname = models.CharField(max_length=20)
-    user_id = models.CharField(max_length=8)
-    user_acitiv = models.ManyToManyField(EcoActivity)
+    user_id = models.CharField(max_length=15)
+    user_activ = models.ManyToManyField(EcoActivity)
 
     def __str__(self):
         return self.user_id

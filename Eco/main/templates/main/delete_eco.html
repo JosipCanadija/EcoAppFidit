@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Eco Activity</title>
+</head>
+<body>
+    <h1>Delete Eco Activity</h1>
+    <p>Are you sure you want to delete "{{ eco_activity.eco_name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirm Delete">
+    </form>
+</body>
+</html>

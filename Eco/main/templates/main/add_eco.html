@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Eco activity</title>
+</head>
+<body>
+    <h1>Add New Eco Activity</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Activity</button>
+    </form>
+</body>
+</html>

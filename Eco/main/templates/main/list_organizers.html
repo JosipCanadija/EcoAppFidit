@@ -13,6 +13,9 @@
             <li>Name: {{ organizer.org_name }} {{ organizer.org_lastname }}</li>
             <p>Contact: {{ organizer.org_contact }}</p>
             <p>Company ID: {{ organizer.org_companyID }}</p>
+            <a href="{% url 'Eco:updateOrganizers' organizer.pk %}">Update</a>
+            <a href="{% url 'Eco:deleteOrganizers' organizer.pk %}">Delete</a>
+            <hr>
         {% empty %}
             <li>No organizers available</li>
         {% endfor %}

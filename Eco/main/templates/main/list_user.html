@@ -7,10 +7,20 @@
 </head>
 <body>
     <h1>List of Users</h1>
+    <a href="{% url 'Eco:addUser' %}">Add New User</a>
     <ul>
         {% for user in users %}
             <li>Name: {{ user.user_name }} {{ user.user_lastname }}</li>
-            <p>ID: {{ user.user_id }}</p>
+            <li>ID: {{ user.user_id }}</li>
+            <li>Eco Activities:</li>
+            <ul>
+                {% for eco_activity in user.user_activ.all %}
+                    <li>Name: {{ eco_activity.eco_name }}</li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'Eco:updateUser' user.pk %}">Update</a>
+            <a href="{% url 'Eco:deleteUser' user.pk %}">Delete</a>
+            <hr>
         {% empty %}
             <li>No users available</li>
         {% endfor %}

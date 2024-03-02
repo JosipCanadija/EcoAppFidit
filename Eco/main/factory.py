@@ -1,5 +1,6 @@
 ##factory.py
 import factory
+import random
 from factory.django import DjangoModelFactory
 from main.models import *
 from django.utils import timezone
@@ -29,6 +30,17 @@ class UserFactory(factory.django.DjangoModelFactory):
     user_name = factory.Faker('first_name')
     user_lastname = factory.Faker('last_name')
     user_id = factory.Sequence(lambda n: f'user_id_{n}')
+
+    @factory.post_generation
+    def user_activ(self, create, extracted, **kwargs):
+        if extracted:
+            for activity in extracted:
+                self.user_activ.add(activity)
+        else:
+            num_activities = random.randint(1, 4)
+            activities = EcoActivity.objects.order_by('?')[:num_activities]
+            for activity in activities:
+                self.user_activ.add(activity)
 
 class GroupAssistantFactory(factory.django.DjangoModelFactory):
     class Meta:

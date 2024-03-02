@@ -20,7 +20,7 @@ class EcoActivityForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['user_name', 'user_lastname', 'user_id', 'user_acitiv']
+        fields = ['user_name', 'user_lastname', 'user_id', 'user_activ']
 
 
 class GroupAssistantForm(forms.ModelForm):
