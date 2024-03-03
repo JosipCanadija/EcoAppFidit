@@ -15,7 +15,7 @@
             <li>Eco Activities:</li>
             <ul>
                 {% for eco_activity in user.user_activ.all %}
-                    <li>Name: {{ eco_activity.eco_name }}</li>
+                    <li>{{ eco_activity.eco_name }}</li>
                 {% endfor %}
             </ul>
             <a href="{% url 'Eco:updateUser' user.pk %}">Update</a>
